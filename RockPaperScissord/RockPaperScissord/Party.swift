@@ -28,52 +28,38 @@ class Party:ObservableObject{
     }
     
     func initParty() {
-        scoreComputer = 0
-        scorePlayer = 0
+        /*
+         // FIXME
+         // Initialiser la partie et le score des joueurs
+         */
         showingWinAlert = false
     }
 
     func checkWin(playerPlay : playOption!, computerPlay : playOption!) {
-        if playerPlay == computerPlay{
+        if playerPlay == computerPlay {
                 return
-        }
-        if playerPlay == playOption.ciseaux{
-            if computerPlay == playOption.feuille{
-                scorePlayer += 1
-            }
-            if computerPlay == playOption.pierre{
-                scoreComputer += 1
-            }
-        }
-
-        if playerPlay == playOption.pierre{
-            if computerPlay == playOption.feuille{
-                scoreComputer += 1
-            }
-            if computerPlay == playOption.ciseaux{
-                scorePlayer += 1
-            }
-        }
+        } // Cas d'arrêt en cas d'égalité
         
-        if playerPlay == playOption.feuille{
-            if computerPlay == playOption.ciseaux{
-                scoreComputer += 1
-            }
-            if computerPlay == playOption.pierre{
-                scorePlayer += 1
-            }
-        }
+        /*
+         // FIXME
+         // Vérifier et comparer les scores pour voir s'il y a un gagnant
+         */
+        
+        // RAPPEL DES RÈGLES:
+        //      - Le ciseau gagne sur la feuille
+        //      - la feuille gagne sur la pierre
+        //      - la pierre gagne sur le ciseau
     }
     
     func checkEnd(){
         if scoreComputer == scoreMax || scorePlayer == scoreMax {
             print("win")
             initParty()
-            if scoreComputer > scorePlayer {
-                winner = "Le gagnant est COMPUTER"
-            } else {
-                winner = "Le gagnant est le joueur, bien joué"
-            }
+            
+            /*
+             // FIXME
+             // Vérifier qui est le grand gagnant et mettre à jour la variable `winner` pour afficher le résultat
+             */
         }
     }
     
