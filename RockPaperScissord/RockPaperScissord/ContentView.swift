@@ -11,27 +11,34 @@ struct ContentView: View {
     @ObservedObject var party = Party()
     var body: some View {
         VStack{
-            Text("\(party.winner)")
             Text("Pierre, Feuille, Ciseaux")
+                .font(.title)
+                .padding()
+            
+            Text("\(party.winner)")
+                .font(.subheadline)
                 .padding()
             }
-
+            VStack{
                 Text("Score")
                 HStack{
                     VStack{
                         Text("🖥")
                         Text("\(party.scoreComputer)")
+                            .padding()
                     }
                     VStack{
                         Text("-")
+                            .padding()
                     }
                     VStack{
                         Text("😃")
                         Text("\(party.scorePlayer)")
+                            .padding()
                     }
-
                 }
-
+            }                    .background(Color.blue)
+            .cornerRadius(15)
     
             .padding()
             HStack{
