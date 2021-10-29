@@ -14,43 +14,65 @@ struct ContentView: View {
             Text("\(party.winner)")
             Text("Pierre, Feuille, Ciseaux")
                 .padding()
-            Button(action: {party.initParty()}) {
-                Text("Nouvelle manche")
             }
 
                 Text("Score")
                 HStack{
-                    Text("ordinateur")
-                    Text("-")
-                    Text("joueur")
+                    VStack{
+                        Text("🖥")
+                        Text("\(party.scoreComputer)")
+                    }
+                    VStack{
+                        Text("-")
+                    }
+                    VStack{
+                        Text("😃")
+                        Text("\(party.scorePlayer)")
+                    }
+
                 }
-                HStack{
-                    Text("\(party.scoreComputer)")
-                        .padding()
-                    Text("-")
-                        .padding()
-                    Text("\(party.scorePlayer)")
-                }
-                VStack{
-                    Stepper("Score max : \(party.scoreMax)", value: $party.scoreMax, in: 0...10)
-                    
-                }
+
+    
             .padding()
             HStack{
                 Button(action: {party.playNewAction(playerPlay: Party.playOption.pierre)}) {
-                    Text("Pierre")
-                }
+                    Text("🪨")
+                        .font(.title)
+                }.padding()
+                    .background(Color.gray)
+                        .cornerRadius(15)
                 Button(action: {party.playNewAction(playerPlay: Party.playOption.feuille)}) {
-                    Text("Feuille")
-                }
+                    Text("📄")
+                        .font(.title)
+                }.padding()
+                    .background(Color.gray)
+                        .cornerRadius(15)
                 Button(action: {party.playNewAction(playerPlay: Party.playOption.ciseaux)}) {
-                    Text("Ciseaux")
-                }
+                    Text("✂️")
+                        .font(.title)
+                }.padding()
+                    .background(Color.gray)
+                        .cornerRadius(15)
+            }
+        VStack{
+            Text("preferences")
+                .font(.headline)
+            HStack{
+            Button(action: {party.initParty()}) {
+            Text("Nouvelle manche")
+            }
+            .padding()
+            
+            Stepper("Score max : \(party.scoreMax)", value: $party.scoreMax, in: 0...10)
+                    
+            
             }
         }
+        }
+
 
     }
-}
+    
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

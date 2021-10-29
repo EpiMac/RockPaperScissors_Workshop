@@ -13,7 +13,7 @@ class Party:ObservableObject{
     @Published var scorePlayer : Int
     @Published var scoreMax : Int
     @Published var showingWinAlert : Bool = false
-    @Published var winner : String = ""
+    @Published var winner : String = " "
     enum playOption : CaseIterable {
         case pierre
         case feuille
@@ -78,7 +78,7 @@ class Party:ObservableObject{
     }
     
     func playNewAction(playerPlay : playOption) {
-        self.winner = ""
+        self.winner = " "
         let computerPlay : playOption = playOption.allCases.randomElement()!
         print("joueur : \(playerPlay), ordi : \(computerPlay)")
         checkWin(playerPlay: playerPlay, computerPlay: computerPlay)
